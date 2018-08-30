@@ -1,0 +1,11 @@
+<resources>
+    <string name="app_name">Top</string>
+    <string name="action_settings">Settings</string>
+    <string name="artist.hint.nombre">nombre</string>
+    <string name="artist.hint.orden">orden</string>
+    <string name="artist.hint.apellidos">apellidos</string>
+    <string name="artist.hint.fechaNacimiento">Fecha de Nacimiento</string>
+    <string name="artist.hint.estatura">Estatura(cm)</string>
+    <string name="artist.hint.lugarNacimiento">Lugar de nacimiento</string>
+    <string name="artist.hint.notas">Notas</string>
+</resources>
