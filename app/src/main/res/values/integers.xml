@@ -4,4 +4,5 @@
     <integer name="estatura.maxLength">3</integer>
     <integer name="lugarNacimiento.maxLength">50</integer>
     <integer name="notas.maxLength">1000</integer>
+    <integer name="estatura_min">50</integer>
 </resources>

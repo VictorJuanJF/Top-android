@@ -9,6 +9,7 @@ import android.support.v7.widget.RecyclerView;
 import android.support.v7.widget.Toolbar;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.view.inputmethod.InputMethodManager;
 
 import java.util.ArrayList;
 
@@ -26,6 +27,8 @@ public class MainActivity extends AppCompatActivity implements OnItemClickListen
     CoordinatorLayout containerMain;
 
     private ArtistaAdapter adapter;
+
+    public static final Artista sArtista=new Artista();
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -99,7 +102,17 @@ public class MainActivity extends AppCompatActivity implements OnItemClickListen
      * Metodos implementados por la interfaz OnItemClickListener*************/
     @Override
     public void onItemClick(Artista artista) {
-
+        sArtista.setId(artista.getId());
+        sArtista.setNombre(artista.getNombre());
+        sArtista.setApellidos(artista.getApellidos());
+        sArtista.setFechaNacimiento(artista.getFechaNacimiento());
+        sArtista.setEstatura(artista.getEstatura());
+        sArtista.setLugarNacimiento(artista.getLugarNacimiento());
+        sArtista.setOrden(artista.getOrden());
+        sArtista.setNotas(artista.getNotas());
+        sArtista.setFotoUrl(artista.getFotoUrl());
+        Intent intent=new Intent(MainActivity.this,DetalleActivity.class);
+        startActivity(intent);
     }
 
     @Override
@@ -107,8 +120,19 @@ public class MainActivity extends AppCompatActivity implements OnItemClickListen
 
     }
 
+    @Override
+    protected void onActivityResult(int requestCode, int resultCode,Intent data){
+        super.onActivityResult(requestCode,resultCode,data);
+        if(resultCode==RESULT_OK && requestCode==1){
+            adapter.add(sArtista);
+        }
+    }
+
+
     @OnClick(R.id.fab)
     public void addArtist() {
-
+        Intent intent = new Intent(MainActivity.this,AddArtistActivity.class);
+        intent.putExtra(Artista.ORDEN,adapter.getItemCount()+1);
+        startActivityForResult(intent,1);
     }
 }

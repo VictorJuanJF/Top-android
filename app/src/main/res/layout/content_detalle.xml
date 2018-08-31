@@ -1,45 +1,19 @@
 <?xml version="1.0" encoding="utf-8"?>
-<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+<android.support.v4.widget.NestedScrollView xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/containerMain"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:fillViewport="true"
-    tools:context=".AddArtistActivity"
-    app:layout_behavior="@string/appbar_scrolling_view_behavior">
+    app:layout_behavior="@string/appbar_scrolling_view_behavior"
+    tools:context=".DetalleActivity"
+    tools:showIn="@layout/activity_detalle">
+
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:orientation="vertical">
-        <FrameLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content">
-            <android.support.v7.widget.AppCompatImageView
-                android:id="@+id/imgFoto"
-                android:layout_width="match_parent"
-                android:layout_height="@dimen/app.bar.height"
-                android:background="@android:color/darker_gray"
-                android:src="@drawable/ic_photo_size_select_actual"/>
-            <LinearLayout
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_gravity="end"
-                android:orientation="vertical">
-                <android.support.v7.widget.AppCompatImageView
-                    android:id="@+id/imgDeleteFoto"
-                    style="@style/AppTheme.ImageViewButton"
-                    android:src="@drawable/ic_close_black"/>
-                <android.support.v7.widget.AppCompatImageView
-                    android:id="@+id/imgFromGallery"
-                    style="@style/AppTheme.ImageViewButton"
-                    android:src="@drawable/ic_image_black_48dp"/>
-                <android.support.v7.widget.AppCompatImageView
-                    android:id="@+id/imgFromUrl"
-                    style="@style/AppTheme.ImageViewButton"
-                    android:src="@drawable/ic_android"/>
-
-            </LinearLayout>
-        </FrameLayout>
+        android:orientation="vertical"
+        android:focusableInTouchMode="true">
         <android.support.design.widget.TextInputLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content">
@@ -49,6 +23,7 @@
                 android:layout_height="wrap_content"
                 android:hint="@string/artist.hint.nombre"
                 android:inputType="textPersonName|textCapWords"
+                android:enabled="false"
                 android:maxLength="@integer/nombre.maxLength"/>
         </android.support.design.widget.TextInputLayout>
 
@@ -59,6 +34,7 @@
                 android:id="@+id/etApellidos"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:enabled="false"
                 android:hint="@string/artist.hint.apellidos"
                 android:inputType="textPersonName|textCapWords"
                 android:maxLength="@integer/nombre.maxLength"/>
@@ -78,8 +54,31 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:hint="@string/artist.hint.fechaNacimiento"
+                    android:enabled="false"
                     android:focusableInTouchMode="false"/>
             </android.support.design.widget.TextInputLayout>
+
+            <android.support.design.widget.TextInputLayout
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="50">
+                <android.support.design.widget.TextInputEditText
+                    android:id="@+id/etEdad"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:hint="@string/artist.hint.edad"
+                    android:enabled="false"
+                    android:inputType="number"
+                    android:maxLength="@integer/estatura.maxLength"/>
+            </android.support.design.widget.TextInputLayout>
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:baselineAligned="false">
 
             <android.support.design.widget.TextInputLayout
                 android:layout_width="0dp"
@@ -90,9 +89,26 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:hint="@string/artist.hint.estatura"
+                    android:enabled="false"
                     android:inputType="number"
                     android:maxLength="@integer/estatura.maxLength"/>
             </android.support.design.widget.TextInputLayout>
+
+            <android.support.design.widget.TextInputLayout
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="50">
+
+                <android.support.design.widget.TextInputEditText
+                    android:id="@+id/etOrden"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:hint="@string/artist.hint.orden"
+                    android:enabled="false"
+                    android:focusableInTouchMode="false"/>
+            </android.support.design.widget.TextInputLayout>
+
+
 
         </LinearLayout>
 
@@ -104,6 +120,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:hint="@string/artist.hint.lugarNacimiento"
+                android:enabled="false"
                 android:inputType="textAutoComplete"
                 android:maxLength="@integer/lugarNacimiento.maxLength"/>
         </android.support.design.widget.TextInputLayout>
@@ -116,6 +133,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:hint="@string/artist.hint.notas"
+                android:enabled="false"
                 android:gravity="top|start"
                 android:inputType="textMultiLine"
                 android:maxLength="@integer/notas.maxLength"/>
@@ -123,4 +141,4 @@
 
     </LinearLayout>
 
-</ScrollView>
+</android.support.v4.widget.NestedScrollView>
